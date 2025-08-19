@@ -8,7 +8,7 @@ const db = mysql.createConnection({
   password: process.env.TIDB_PASSWORD,
   database: process.env.TIDB_DATABASE,
   ssl: {
-    ca: fs.readFileSync(process.env.TIDB_CA), // use the CA cert
+   ca: Buffer.from(process.env.TIDB_CA, "utf-8") , // use the CA cert
   },
 });
 
